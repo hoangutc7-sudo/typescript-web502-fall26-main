@@ -15,7 +15,7 @@ type Product = {
 
 let listProducts: Product[] = [{
     name: "Áo",
-    price: 200000,
+    price: 20,
     sale: true,
     rate: Rate.hight
 },
@@ -44,16 +44,13 @@ let listProducts: Product[] = [{
         rate: Rate.medium
     }
 ];
-function addDescription() {
-    let newList = listProducts.map((product) => {
-        return {
-            ...product,
-            description: product.price > 5 ? "Tốt" : "Bình thường"
-        };
+function locSanPham() {
+    let newList = listProducts.filter((product) => {
+        return product.price > 5;
     });
 
     return newList;
 }
-
-console.log("Danh sách sau khi thêm description:");
-console.log(addDescription());
+console.log(listProducts);
+console.log("Danh sách sản phẩm có price > 5:");
+console.log(locSanPham());
