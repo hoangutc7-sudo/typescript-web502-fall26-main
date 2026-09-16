@@ -1,5 +1,5 @@
 "use strict";
-console.log("LAB 2 ĐANG CHẠY");
+console.log("LAB 2");
 var Rate;
 (function (Rate) {
     Rate["low"] = "Thap";

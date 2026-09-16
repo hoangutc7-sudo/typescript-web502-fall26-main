@@ -1,4 +1,4 @@
-console.log("LAB 2 ĐANG CHẠY");
+console.log("LAB 2");
 
 enum Rate {
     low = "Thap",
