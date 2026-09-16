@@ -4,3 +4,46 @@ function chuvihcn(chieudai: number, chieurong: number) {
 }
 
 console.log(chuvihcn(3, 4));
+// Viết 1 hàm tính tổng nhiều số (không biết trước số lượng tham số), sử dụng rest parameter
+function tinhTong(...numbers: number[]) {
+    let tong = 0;
+
+    for (let number of numbers) {
+        tong = tong + number;
+    }
+
+    return tong;
+}
+
+console.log(tinhTong(1, 2, 3, 4, 5));
+// Viết hàm trả về số lượng xuất hiện của 1 kí tự trong chuỗi
+function demKyTu(chuoi: string, kyTu: string) {
+    let dem = 0;
+
+    for (let i = 0; i < chuoi.length; i++) {
+        if (chuoi[i] == kyTu) {
+            dem++;
+        }
+    }
+
+    return dem;
+}
+
+console.log(demKyTu("typescript", "t"));
+// Viết hàm trả về boolean kiểm tra 1 số có phải số nguyên tố
+function laSoNguyenTo(number: number): boolean {
+    if (number < 2) {
+        return false;
+    }
+
+    for (let i = 2; i < number; i++) {
+        if (number % i == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+console.log(laSoNguyenTo(7));
+console.log(laSoNguyenTo(8));
