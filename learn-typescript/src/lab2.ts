@@ -54,3 +54,29 @@ function locSanPham() {
 console.log(listProducts);
 console.log("Danh sách sản phẩm có price > 5:");
 console.log(locSanPham());
+
+function showProducts() {
+    listProducts.forEach((product) => {
+        console.log(product.name, product.price, product.sale, product.rate);
+    });
+}
+
+showProducts();
+
+function totalPrice() {
+    return listProducts.reduce((total, product) => {
+        return total + product.price;
+    }, 0);
+}
+
+console.log("Tổng giá bán:", totalPrice());
+
+function filterProducts() {
+    return listProducts.filter((product) => {
+        return product.sale === true &&
+               (product.rate === Rate.medium || product.rate === Rate.hight);
+    });
+}
+
+console.log("Sản phẩm Sale và đánh giá từ Trung bình trở lên:");
+console.log(filterProducts());
