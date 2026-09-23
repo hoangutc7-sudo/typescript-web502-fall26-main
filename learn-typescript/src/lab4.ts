@@ -45,31 +45,3 @@ let product: Product = {
 };
 
 console.log(product);
-//bai 4
-type Status = "loading" | "success" | "error";
-
-function logStatus(status: Status) {
-    if (status === "loading") {
-        console.log("Đang tải...");
-    } else if (status === "success") {
-        console.log("Thành công!");
-    } else {
-        console.log("Có lỗi xảy ra!");
-    }
-}
-
-logStatus("loading");
-logStatus("success");
-logStatus("error");
-//bai 5
-function identity<T>(value: T): T {
-    return value;
-}
-
-let number = identity<number>(10);
-let string = identity<string>("Cong");
-let boolean = identity<boolean>(true);
-
-console.log(number);
-console.log(string);
-console.log(boolean);
