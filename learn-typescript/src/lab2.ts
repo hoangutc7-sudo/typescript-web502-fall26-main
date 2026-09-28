@@ -1,82 +1,33 @@
-console.log("LAB 2");
-
-enum Rate {
-    low = "Thap",
-    medium = "Trung binh",
-    hight = "Cao"
+// const Product
+// enum
+enum ProductRate {
+  low = "thấp",
+  high = "cao",
 }
 
-type Product = {
-    name: string;
-    price: number;
-    sale: boolean;
-    rate: Rate;
-}
+const product: { name: string; rate: ProductRate; price: number } = {
+  name: "laptop",
+  rate: ProductRate.low,
+  price: 10000,
+};
 
-let listProducts: Product[] = [{
-    name: "Áo",
-    price: 20,
-    sale: true,
-    rate: Rate.hight
-},
-{
-        name: "Quần jean",
-        price: 10,
-        sale: false,
-        rate: Rate.hight
-    },
-    {
-        name: "Giày Nike",
-        price: 20,
-        sale: true,
-        rate: Rate.hight
-    },
-    {
-        name: "Mũ lưỡi trai",
-        price: 3,
-        sale: true,
-        rate: Rate.low
-    },
-    {
-        name: "Balo",
-        price: 8,
-        sale: false,
-        rate: Rate.medium
-    }
+console.log(product);
+
+const listProducts: { name: string; rate: ProductRate; price: number }[] = [
+  {
+    name: "laptop1",
+    rate: ProductRate.low,
+    price: 10000,
+  },
+  {
+    name: "laptop2",
+    rate: ProductRate.high,
+    price: 10000,
+  },
 ];
-function locSanPham() {
-    let newList = listProducts.filter((product) => {
-        return product.price > 5;
-    });
 
-    return newList;
+function calPrice(list: { name: string; rate: ProductRate; price: number }[]) {
+  return 111;
 }
 console.log(listProducts);
-console.log("Danh sách sản phẩm có price > 5:");
-console.log(locSanPham());
-
-function showProducts() {
-    listProducts.forEach((product) => {
-        console.log(product.name, product.price, product.sale, product.rate);
-    });
-}
-
-showProducts();
-
-function totalPrice() {
-    return listProducts.reduce((total, product) => {
-        return total + product.price;
-    }, 0);
-}
-
-console.log("Tổng giá bán:", totalPrice());
-
-function filterProducts() {
-    return listProducts.filter((product) => {
-        return product.sale === true &&
-               (product.rate === Rate.medium || product.rate === Rate.hight);
-    });
-}
-
-console.log("Sản phẩm Sale và đánh giá từ Trung bình trở lên:");
-console.log(filterProducts());
+console.log(calPrice(listProducts));

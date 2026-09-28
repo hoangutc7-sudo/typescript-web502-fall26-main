@@ -1,102 +1,79 @@
-//function
-function sum(a:number,b:number):number{
-    return a+b;
-    console.log("")
-}
-sum (3,4);
-
-function sayHello(name: string):string{
-    return "xin chào"+name;
-}
-sayHello("hoang")
-
-function say2(name: string):void{
-    console.log ("xin chào"+name);
+// function
+function sum(a: number, b: number): number {
+  return a + b;
 }
 
-//arrow function
-const sumAB = (a: number,b:number): number =>{
-    return a+b;
+console.log(sum(3, 4));
+
+function sayHello(name: string): string {
+  return "Xin chao " + name;
+}
+
+sayHello("hoadv"); // Xin chao hoadv
+
+function sayHiAnhTrai(name: string): void {
+  console.log("Xin chao " + name);
+}
+
+sayHiAnhTrai("hoadv");
+
+// arrow function
+const sumAB = (a: number, b: number): number => {
+  return a + b;
 };
-sumAB(3,4);
+sumAB(3, 4);
 
-// bài 1
-const averageScore = (...scores: number[]): number => {
-    let total = scores.reduce((sum, score) => sum + score, 0);
-    return total / scores.length;
+// default params
+
+const sayHellerUser = (user: string | number = "hoadv") => {
+  return user;
 };
+console.log(sayHellerUser());
+console.log(sayHellerUser("namdv"));
+console.log(sayHellerUser(66));
 
-console.log(averageScore(8, 9, 10));
-console.log(averageScore(5, 6, 7, 8));
-
-// bài 2
-
-function checkNumber(n: number): string {
-    if (n % 2 == 0) {
-        return "even";
-    } else {
-        return "odd";
-    }
-}
-
-console.log(checkNumber(4)); // even
-console.log(checkNumber(7)); // odd
-
-// bài 3
-
-function createUser(name: string, age?: number, role: string = "user"): string {
-    if (age != undefined) {
-        return `Name: ${name}, Age: ${age}, Role: ${role}`;
-    } else {
-        return `Name: ${name}, Role: ${role}`;
-    }
-}
-
-console.log(createUser("Hoàng"));
-// Name: hoàng, Role: user
-
-console.log(createUser("Nam", 25, "admin"));
-// Name: Nam, Age: 25, Role: admin
-// bai 4
-type Product = {
-    name: string;
-    price: number;
+// option param
+const sayHelloPerson = (user?: string) => {
+  return user;
 };
 
-let products1: Product[] = [
-    {
-        name: "Áo",
-        price: 20
-    },
-    {
-        name: "Quần",
-        price: 30
-    }
-];
+console.log(sayHelloPerson());
 
-let products2: Product[] = [
-    {
-        name: "Giày",
-        price: 50
-    },
-    {
-        name: "Mũ",
-        price: 10
-    }
-];
+const createUser = (name: string, age?: number, role = "user") => {
+  console.log(name, age, role);
+};
 
-// Hàm gộp 2 mảng sản phẩm
-function mergeProducts(...products: Product[][]): Product[] {
-    return products.flat();
-}
+createUser("hoadv", 36, "admin");
 
-// Hàm in danh sách sản phẩm
-function printProducts(products: Product[]): void {
-    products.forEach((product) => {
-        console.log("Tên:", product.name, "- Giá:", product.price);
-    });
-}
+const callTotalPrice = (...prices: number[]) => {
+  console.log(prices); // [...prices]
+};
 
-let listProducts = mergeProducts(products1, products2);
+callTotalPrice(10000, 2000, 30000);
 
-printProducts(listProducts);
+// array:
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+const arr3 = [...arr1, ...arr2]; // chia ra arr1: [1,2,3,4]
+console.log(arr3);
+
+const obj1 = {
+  id: 1,
+  name: "hoadv",
+};
+
+const obj2 = {
+  age: 36,
+};
+
+const obj3 = { ...obj1, ...obj2 };
+
+console.log(obj3);
+
+const mergeProducts = (...products: string[][]): void => {
+  console.log(products.flat());
+};
+
+const a = ["iPhone", "Samsung"];
+const b = ["Xiaomi", "Oppo"];
+mergeProducts(a, b);

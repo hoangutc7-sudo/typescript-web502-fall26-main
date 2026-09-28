@@ -1,47 +1,64 @@
-//bai 1
+// class: thuoc tinh, contructor, method
 class Student {
-    id: number;
-    name: string;
-
-    constructor(id: number, name: string) {
-        this.id = id;
-        this.name = name;
-    }
-
-    display(): void {
-        console.log("ID:", this.id);
-        console.log("Name:", this.name);
-    }
+  //property
+  id: string;
+  name: string;
+  age: number;
+  constructor(id: string, name: string, age: number) {
+    this.id = id;
+    this.name = name;
+    this.age = age;
+  }
+  // method
+  showStudent() {
+    console.log(this.id);
+  }
 }
 
-let student = new Student(1, "Cong");
-student.display();
+const sv1 = new Student("ph333", "hoadv", 30);
+const sv2 = new Student("ph444", "namedv", 20);
+sv1.showStudent();
 
-//bài 2
+// Interface: object
 interface User {
-    id: number;
-    email: string;
-    phone?: string;
+  name: string;
+  age: number;
+}
+// Type: object / Literal
+type UserInfo = {
+  id: number;
+  name: string;
+  age: number;
+};
+type StudentInfo = {
+  class: string;
+};
+
+const newStudent: UserInfo & StudentInfo = {
+  id: 1,
+  name: "hoadv",
+  age: 30,
+  class: "typescript",
+};
+
+const user: UserInfo = {
+  id: 1,
+  name: "hoadv",
+  age: 30,
+};
+
+const users: User[] = [
+  {
+    name: "hoadv",
+    age: 30,
+  },
+];
+
+// Generic <T>: useState<T>()
+function getValue<T>(value: T): T {
+  return value;
 }
 
-let user: User = {
-    id: 1,
-    email: "cong@gmail.com"
-};
-
-console.log(user);
-
-//bài 3
-type Product = {
-    id: number;
-    name: string;
-    price: number;
-};
-
-let product: Product = {
-    id: 1,
-    name: "Áo",
-    price: 20
-};
-
-console.log(product);
+getValue<string>("3");
+getValue(1);
+getValue<User>({ name: "hoadv", age: 30 });
